@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Projetos | André Lucas</title>
+
+    <style>
+        @font-face {
+            font-family: "Montserrat";
+            src: url("fonts/montserrat-latin.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #02111f;
+            background-image:
+                radial-gradient(ellipse at 18% 24%, rgba(0, 255, 85, 0.09), transparent 35%),
+                radial-gradient(ellipse at 82% 70%, rgba(0, 102, 255, 0.12), transparent 38%),
+                radial-gradient(ellipse at 50% 100%, rgba(0, 217, 255, 0.06), transparent 32%),
+                linear-gradient(90deg, transparent 23%, rgba(0, 217, 255, 0.045) 23.5%, transparent 24%),
+                linear-gradient(0deg, transparent 54%, rgba(0, 255, 85, 0.04) 54.5%, transparent 55%),
+                radial-gradient(circle, rgba(0, 217, 255, 0.22) 0 2px, transparent 3px);
+            background-size: 160% 160%, 160% 160%, 160% 160%, 240px 280px, 240px 280px, 240px 280px;
+            animation: fundoVivo 4.5s ease-in-out infinite alternate;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        @keyframes fundoVivo {
+            0% { background-position: 0% 0%, 100% 70%, 50% 100%, 0 0, 0 0, 0 0; }
+            50% { background-position: 100% 35%, 0% 45%, 85% 0%, 0 70px, 0 -45px, 0 70px; }
+            100% { background-position: 35% 100%, 80% 0%, 20% 30%, 0 140px, 0 -90px, 0 140px; }
+        }
+
+
+        /* ================= FUNDO ANIMADO ================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            top: -180px;
+            left: -180px;
+
+            background: #00ff55;
+            opacity: .10;
+
+            border-radius: 50%;
+            filter: blur(110px);
+
+            animation: luzVerde 1.75s ease-in-out infinite alternate;
+
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            right: -200px;
+            bottom: -200px;
+
+            background: #0066ff;
+            opacity: .12;
+
+            border-radius: 50%;
+            filter: blur(110px);
+
+            animation: luzAzul 2.25s ease-in-out infinite alternate;
+
+            z-index: -1;
+        }
+
+        @keyframes luzVerde {
+
+            0% {
+                transform: translate(0,0) scale(1);
+                opacity: .08;
+            }
+
+            50% {
+                transform: translate(280px,220px) scale(1.5);
+                opacity: .16;
+            }
+
+            100% {
+                transform: translate(100px,360px) scale(1.15);
+                opacity: .10;
+            }
+
+        }
+
+        @keyframes luzAzul {
+
+            0% {
+                transform: translate(0,0) scale(1);
+                opacity: .09;
+            }
+
+            50% {
+                transform: translate(-250px,-200px) scale(1.45);
+                opacity: .17;
+            }
+
+            100% {
+                transform: translate(-120px,-330px) scale(1.1);
+                opacity: .11;
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body,
+            body::before,
+            body::after {
+                animation: none !important;
+            }
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(3,16,29,.88);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 2px solid #00d9ff;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo span {
+            font-size: 38px;
+
+            font-weight: bold;
+            font-style: italic;
+
+            color: #ffe000;
+
+            animation: brilhoLogo 1.5s infinite;
+        }
+
+        .logo h2 {
+            font-size: 23px;
+            font-family: "Montserrat", Arial, sans-serif;
+        }
+
+        @keyframes brilhoLogo {
+
+            0%,100% {
+                text-shadow: 0 0 0 transparent;
+            }
+
+            50% {
+                text-shadow: 0 0 18px #ffe000;
+            }
+
+        }
+
+        nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #00ff55;
+
+            transform: translateY(-3px);
+        }
+
+        nav a.active {
+            color: #00ff55;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .projects-hero {
+            min-height: 400px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 70px 10%;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 20%,
+                    #ffe00035,
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 20% 90%,
+                    #00ff5530,
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    110deg,
+                    #02111f,
+                    #032a2b,
+                    #084c34
+                );
+        }
+
+        .projects-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            right: -300px;
+            top: -250px;
+
+            border: 2px solid #00ff5530;
+
+            border-radius: 50%;
+
+            animation: girar 7.5s linear infinite;
+        }
+
+        .projects-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            right: -180px;
+            top: -150px;
+
+            border: 2px solid #00d9ff25;
+
+            border-radius: 50%;
+
+            animation: girar 4.5s linear infinite reverse;
+        }
+
+        @keyframes girar {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+
+            animation: aparecer 0.5s ease;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .small-title {
+            color: #00ff55;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+        }
+
+        .gradient {
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #00ff55,
+                    #00d9ff,
+                    #ffe000,
+                    #00ff55
+                );
+
+            background-size: 300%;
+
+            background-clip: text;
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            animation: cores 2.5s linear infinite;
+        }
+
+        @keyframes cores {
+
+            from {
+                background-position: 0%;
+            }
+
+            to {
+                background-position: 300%;
+            }
+
+        }
+
+        .hero-text p {
+            max-width: 700px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #d7e2ea;
+        }
+
+
+        /* ================= PROJETOS ================= */
+
+        .projects {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            color: #00ff55;
+
+            font-size: 17px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+        }
+
+        .projects h2 {
+            text-align: center;
+
+            font-size: 38px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* ================= CARDS ================= */
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+        .project-card {
+            position: relative;
+
+            padding: 30px;
+
+            min-height: 280px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #062333,
+                    #031622
+                );
+
+            border: 1px solid #14506a;
+
+            overflow: hidden;
+
+            transition: .5s;
+
+            animation: subir 0.5s ease;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -80px;
+            top: -80px;
+
+            background: #00ff55;
+
+            opacity: .08;
+
+            border-radius: 50%;
+
+            filter: blur(30px);
+
+            transition: .5s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+
+            border-color: #00ff55;
+
+            box-shadow:
+                0 0 30px #00ff5535;
+        }
+
+        .project-card:hover::before {
+            transform: scale(1.8);
+
+            opacity: .15;
+        }
+
+        @keyframes subir {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ================= ÍCONES ================= */
+
+        .project-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            font-size: 34px;
+
+            margin-bottom: 25px;
+
+            border: 2px solid #00ff55;
+
+            transition: .4s;
+        }
+
+        .project-card:hover .project-icon {
+            transform: rotate(5deg) scale(1.1);
+
+            box-shadow:
+                0 0 25px #00ff5555;
+        }
+
+        .project-card:nth-child(2)
+        .project-icon {
+            border-color: #00d9ff;
+        }
+
+        .project-card:nth-child(3)
+        .project-icon {
+            border-color: #ffe000;
+        }
+
+        .project-card:nth-child(4)
+        .project-icon {
+            border-color: #00d9ff;
+        }
+
+        .project-card:nth-child(5)
+        .project-icon {
+            border-color: #00ff55;
+        }
+
+        .project-card:nth-child(6)
+        .project-icon {
+            border-color: #ffe000;
+        }
+
+
+        /* ================= TEXTO DOS CARDS ================= */
+
+        .project-card h3 {
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #aebbc4;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= BOTÃO ================= */
+
+        .project-button {
+            display: inline-block;
+
+            padding: 10px 18px;
+
+            border-radius: 30px;
+
+            color: #02111f;
+
+            background: #00ff55;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .project-button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 0 18px #00ff5580;
+        }
+
+
+        /* ================= ECOCHARGE ================= */
+
+        .featured {
+            max-width: 1200px;
+
+            margin: 70px auto 0;
+
+            padding: 45px;
+
+            border-radius: 25px;
+
+            border: 1px solid #00d9ff;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00ff5512,
+                    #0066ff15,
+                    #ffe00012
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 40px;
+
+            transition: .5s;
+        }
+
+        .featured:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 0 35px #00d9ff35;
+        }
+
+        .featured-text {
+            max-width: 650px;
+        }
+
+        .featured-text h2 {
+            font-size: 35px;
+
+            margin-bottom: 15px;
+
+            color: #ffe000;
+        }
+
+        .featured-text p {
+            color: #c8d6df;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+        .featured-icon {
+            font-size: 100px;
+
+            animation: flutuar 2s ease-in-out infinite;
+        }
+
+        @keyframes flutuar {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            border-top: 2px solid #00ff55;
+
+            padding: 25px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #aebbc4;
+
+            background: #03101d;
+        }
+
+        .footer-highlight {
+            color: #ffe000;
+        }
+
+
+        /* ================= RESPONSIVO ================= */
+
+        @media (max-width: 900px) {
+
+            .projects-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .featured {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                height: auto;
+
+                padding: 20px;
+
+                flex-wrap: wrap;
+
+                gap: 20px;
+            }
+
+            nav {
+                width: 100%;
+
+                justify-content: center;
+
+                gap: 18px;
+
+                order: 3;
+            }
+
+            .hero-text h1 {
+                font-size: 43px;
+            }
+
+            .projects {
+                padding: 55px 25px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 37px;
+            }
+
+            .featured {
+                padding: 30px 20px;
+            }
+
+            .featured-icon {
+                font-size: 70px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .logo h2 {
+                font-size: 18px;
+            }
+
+            .logo span {
+                font-size: 32px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <span><img src="logo2.png" alt="100" height="100"></span>
+
+            <h2>ECOCHARGE</h2>
+
+        </div>
+
+
+        <nav>
+            <a href="inicio.html">inicio</a>
+            <a href="sobre.html">sobre</a>
+            <a href="projeto.html">projeto</a>
+            <a href="empresa.html">empresa</a>
+            <a href="contato.html">contatos</a>
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="projects-hero">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                MEUS PROJETOS
+            </div>
+
+            <h1>
+                Ideias que
+                <span class="gradient">
+                    ganham vida.
+                </span>
+            </h1>
+
+            <p>
+                Aqui estão alguns dos projetos, ideias e experiências
+                que fazem parte da nossa jornada.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PROJETOS ================= -->
+
+    <section class="projects">
+
+        <div class="section-title">
+            PORTFÓLIO
+        </div>
+
+        <h2>
+            Projetos em destaque
+        </h2>
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJETO 1 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Meu Site
+                </h3>
+
+                <p>
+                    Um projeto de desenvolvimento web
+                    criado para apresentar nossos trabalhos.
+                </p>
+
+                <button type="button" class="project-button">
+                    Ver projeto
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJETO 2 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    🔋
+                </div>
+
+                <h3>
+                    EcoCharge One
+                </h3>
+
+                <p>
+                    Um conceito de power bank híbrido
+                    que utiliza energia solar e energia
+                    elétrica para recarga.
+                </p>
+
+                <a href="#ecocharge"
+                   class="project-button">
+
+                    Conhecer
+
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJETO 3 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    ☀️
+                </div>
+
+                <h3>
+                    EcoPanel Mini
+                </h3>
+
+                <p>
+                    Painel solar portatil desenvolvido para carregar pequenos dispositivos
+                </p>
+
+                <a href="#musica"
+                   class="project-button">
+
+                    Explorar
+
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJETO 4 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    💡
+                </div>
+
+                <h3>
+                    EcoWatch
+                </h3>
+
+                <p>
+                   Relogio inteligente que utiliza pequenos painéis solares para recarga, para aumentar a autonomias.
+                </p>
+
+                <a href="#estudos"
+                   class="project-button">
+
+                    Ver detalhes
+
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJETO 5 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    EcoEstation
+                </h3>
+
+                <p>
+                    Um projeto de estação de carregamento
+                    para dispositivos pequenos, utilizando energia
+                    solar e armazenamento eficiente.
+                </p>
+
+                <a href="#jogos"
+                   class="project-button">
+
+                    Explorar
+
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJETO 6 -->
+
+            <div class="project-card">
+
+                <div class="project-icon">
+                    ⚒️
+                </div>
+
+                <h3>
+                    Novas ideias
+                </h3>
+
+                <p>
+                    Projetos futuros que ainda estão
+                    sendo planejados e desenvolvimento...
+                </p>
+
+                <a href="#futuro"
+                   class="project-button">
+
+                    Em breve
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= ECOCHARGE ================= -->
+
+        <div class="featured" id="ecocharge">
+
+            <div class="featured-text">
+
+                <h2>
+                    ☀️ EcoCharge
+                </h2>
+
+                <p>
+                    O EcoCharge é um conceito de power bank
+                    híbrido desenvolvido para unir praticidade
+                    e sustentabilidade. Ele pode ser recarregado
+                    pela energia solar ou pela tomada elétrica,
+                    oferecendo duas formas de carregamento.
+                </p>
+
+                <a href="#"
+                   class="project-button">
+
+                    Projeto em destaque
+
+                </a>
+
+            </div>
+
+
+            <div class="featured-icon">
+                🔋
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div>
+            © 2026 EcoCharge
+        </div>
+
+        <div>
+            energia <span class="footer-highlight">•</span>
+            renovavel <span class="footer-highlight">•</span>
+            sustentavel
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
