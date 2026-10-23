@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <title>Sobre | André Lucas</title>
+
+    <style>
+@font-face {
+    font-family: "Montserrat";
+    src: url("fonts/montserrat-latin.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #02111f;
+    background-image:
+        radial-gradient(ellipse at 18% 24%, rgba(0, 255, 85, 0.09), transparent 35%),
+        radial-gradient(ellipse at 82% 70%, rgba(0, 102, 255, 0.12), transparent 38%),
+        radial-gradient(ellipse at 50% 100%, rgba(0, 217, 255, 0.06), transparent 32%),
+        linear-gradient(90deg, transparent 23%, rgba(0, 217, 255, 0.045) 23.5%, transparent 24%),
+        linear-gradient(0deg, transparent 54%, rgba(0, 255, 85, 0.04) 54.5%, transparent 55%),
+        radial-gradient(circle, rgba(0, 217, 255, 0.22) 0 2px, transparent 3px);
+    background-size: 160% 160%, 160% 160%, 160% 160%, 240px 280px, 240px 280px, 240px 280px;
+    animation: fundoVivo 4.5s ease-in-out infinite alternate;
+    color: white;
+    overflow-x: hidden;
+}
+
+@keyframes fundoVivo {
+    0% { background-position: 0% 0%, 100% 70%, 50% 100%, 0 0, 0 0, 0 0; }
+    50% { background-position: 100% 35%, 0% 45%, 85% 0%, 0 70px, 0 -45px, 0 70px; }
+    100% { background-position: 35% 100%, 80% 0%, 20% 30%, 0 140px, 0 -90px, 0 140px; }
+}
+
+
+/* ================= FUNDO ================= */
+
+body::before {
+    content: "";
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    top: -180px;
+    left: -180px;
+
+    background: #00ff55;
+    opacity: 0.10;
+
+    border-radius: 50%;
+    filter: blur(110px);
+
+    animation: luzVerde 1.75s ease-in-out infinite alternate;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    right: -200px;
+    bottom: -200px;
+
+    background: #0066ff;
+    opacity: 0.12;
+
+    border-radius: 50%;
+    filter: blur(110px);
+
+    animation: luzAzul 2.25s ease-in-out infinite alternate;
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes luzVerde {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.08;
+    }
+
+    50% {
+        transform: translate(280px, 220px) scale(1.5);
+        opacity: 0.16;
+    }
+
+    100% {
+        transform: translate(100px, 360px) scale(1.15);
+        opacity: 0.10;
+    }
+}
+
+@keyframes luzAzul {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.09;
+    }
+
+    50% {
+        transform: translate(-250px, -200px) scale(1.45);
+        opacity: 0.17;
+    }
+
+    100% {
+        transform: translate(-120px, -330px) scale(1.1);
+        opacity: 0.11;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body,
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(3, 16, 29, 0.88);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 2px solid #00d9ff;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo span {
+    font-size: 38px;
+
+    font-weight: bold;
+    font-style: italic;
+
+    color: #ffe000;
+
+    animation: brilhoLogo 1.5s infinite;
+}
+
+.logo h2 {
+    font-size: 23px;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+@keyframes brilhoLogo {
+
+    0%, 100% {
+        text-shadow: 0 0 0 transparent;
+    }
+
+    50% {
+        text-shadow: 0 0 18px #ffe000;
+    }
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #00ff55;
+    transform: translateY(-3px);
+}
+
+nav a.active {
+    color: #00ff55;
+}
+
+
+/* ================= HERO ================= */
+
+.about-hero {
+    min-height: 380px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 10%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #ffe00035,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 20% 90%,
+            #00ff5530,
+            transparent 30%
+        ),
+        linear-gradient(
+            110deg,
+            #02111f,
+            #032a2b,
+            #084c34
+        );
+}
+
+
+/* círculos decorativos */
+
+.about-hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -300px;
+    top: -250px;
+
+    border: 2px solid #00ff5530;
+
+    border-radius: 50%;
+
+    animation: girar 7.5s linear infinite;
+}
+
+.about-hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    right: -180px;
+    top: -150px;
+
+    border: 2px solid #00d9ff25;
+
+    border-radius: 50%;
+
+    animation: girar 4.5s linear infinite reverse;
+}
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+
+    animation: aparecer 0.5s ease;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small-title {
+    color: #00ff55;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.gradient {
+    background:
+        linear-gradient(
+            90deg,
+            #00ff55,
+            #00d9ff,
+            #ffe000,
+            #00ff55
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation: cores 2.5s linear infinite;
+}
+
+@keyframes cores {
+
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 300%;
+    }
+}
+
+.hero-text p {
+    max-width: 700px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #d7e2ea;
+}
+
+
+/* ================= CONTEÚDO ================= */
+
+.content {
+    padding: 80px 8%;
+
+    display: grid;
+
+    grid-template-columns:
+        300px 1.4fr 280px 280px;
+
+    gap: 35px;
+
+    align-items: center;
+}
+
+
+/* ================= FOTO ================= */
+
+.photo {
+    width: 100%;
+    aspect-ratio: 1273 / 1025;
+
+    border-radius: 20px;
+
+    border: 2px solid #00ff55;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00ff55,
+            #0066ff,
+            #ffe000
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    transition: .5s;
+
+    animation: flutuar 2.5s ease-in-out infinite;
+}
+
+.photo:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 30px #00ff5555;
+}
+
+@keyframes flutuar {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.photo-placeholder {
+    font-size: 100px;
+}
+
+
+/* ================= HISTÓRIA ================= */
+
+.section-title {
+    color: #00ff55;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.history h2 {
+    font-size: 35px;
+
+    margin-bottom: 20px;
+}
+
+.history p {
+    color: #c4d1da;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+}
+
+.signature {
+    color: #ffe000;
+
+    font-size: 30px;
+
+    font-style: italic;
+    font-family: "Montserrat", Arial, sans-serif;
+
+    margin-top: 25px;
+}
+
+
+/* ================= INTERESSES ================= */
+
+.interests {
+    border-left: 1px solid #14506a;
+
+    padding-left: 30px;
+}
+
+.interest {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    transition: .4s;
+}
+
+.interest:hover {
+    transform: translateX(8px);
+}
+
+.interest-icon {
+    width: 60px;
+    height: 60px;
+
+    min-width: 60px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    border: 2px solid #00ff55;
+
+    transition: .4s;
+}
+
+.interest:hover .interest-icon {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 20px #00ff5555;
+}
+
+.interest:nth-child(2) .interest-icon {
+    border-color: #00d9ff;
+}
+
+.interest:nth-child(3) .interest-icon {
+    border-color: #ffe000;
+}
+
+.interest:nth-child(4) .interest-icon {
+    border-color: #00d9ff;
+}
+
+.interest h3 {
+    margin-bottom: 5px;
+}
+
+.interest p {
+    color: #9fb0bc;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* ================= SONHOS ================= */
+
+.dreams {
+    border-left: 1px solid #14506a;
+
+    padding-left: 30px;
+}
+
+.dreams h2 {
+    color: #00ff55;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+.dream {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    line-height: 1.5;
+
+    transition: .3s;
+}
+
+.dream:hover {
+    transform: translateX(6px);
+}
+
+.check {
+    color: #00ff55;
+
+    font-size: 20px;
+}
+
+
+/* ================= CITAÇÃO ================= */
+
+.quote {
+    margin-top: 30px;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    border: 1px solid #14506a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00ff5515,
+            #0066ff15,
+            #ffe00015
+        );
+
+    transition: .5s;
+}
+
+.quote:hover {
+    transform: translateY(-7px);
+
+    border-color: #00ff55;
+
+    box-shadow:
+        0 0 25px #00ff5530;
+}
+
+.quote p {
+    font-size: 19px;
+
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+.quote-line {
+    width: 90px;
+    height: 4px;
+
+    margin: 20px auto;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00ff55,
+            #ffe000,
+            #0066ff
+        );
+
+    animation: linha 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes linha {
+
+    from {
+        width: 60px;
+    }
+
+    to {
+        width: 130px;
+    }
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    border-top: 2px solid #00ff55;
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #aebbc4;
+
+    background: #03101d;
+}
+
+.footer-highlight {
+    color: #ffe000;
+}
+
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 1100px) {
+
+    .content {
+        grid-template-columns:
+            280px 1fr;
+    }
+
+    .interests,
+    .dreams {
+        border-left: none;
+
+        border-top: 1px solid #14506a;
+
+        padding: 30px 0 0;
+    }
+}
+
+@media (max-width: 800px) {
+
+    header {
+        height: auto;
+
+        padding: 20px;
+
+        flex-wrap: wrap;
+
+        gap: 20px;
+    }
+
+    nav {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+
+        order: 3;
+    }
+
+    .hero-text h1 {
+        font-size: 43px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+
+        padding: 55px 25px;
+    }
+
+    .interests,
+    .dreams {
+        border-left: none;
+    }
+
+    footer {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .logo h2 {
+        font-size: 18px;
+    }
+
+    .logo span {
+        font-size: 32px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero-text h1 {
+        font-size: 37px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= MENU ================= -->
+
+    <header>
+
+        <div class="logo">
+            <span><img src="logo2.png" alt="Logo da EcoCharge" height="100"></span>
+            <h2>ECOCHARGE</h2>
+        </div>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="projeto.html">Projetos</a>
+            <a href="empresa.html">Empresa</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+
+
+    </header>
+
+
+    <!-- ================= TOPO ================= -->
+
+    <section class="about-hero">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                Sobre a EcoCharge
+            </div>
+
+            <h1>
+                O que a empresa
+                <span class="gradient">
+                    faz?
+                </span>
+            </h1>
+
+            <p>
+                A EcoCharge propõe produtos que aproveitam fontes de energia
+                renovável, seja de forma independente, seja em soluções híbridas.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTEÚDO ================= -->
+
+    <main class="content">
+
+
+        <!-- FOTO -->
+
+        <div class="photo">
+
+            <!--
+                COLOQUE SUA FOTO NA MESMA PASTA
+                E CHAME DE "andre.jpg"
+
+                Depois descomente a linha abaixo:
+            -->
+
+            <img src="ecocharge2.jpeg" alt="Power bank EcoCharge com painel solar">
+
+        </div>
+
+
+        <!-- HISTÓRIA -->
+
+        <section class="history">
+
+            <div class="section-title">
+                MINHA HISTÓRIA
+            </div>
+
+            <h2>
+                O objetivo é:
+
+            </h2>
+
+            <p>
+                Desenvolver um protótipo capaz de captar energia solar, 
+                armazená-la e utilizá-la posteriormente, demonstrando uma alternativa 
+                simples e sustentável para a geração de energia elétrica.
+            </p>
+
+            <p>
+                O projeto também pretende investigar como fatores
+                como intensidade da luz, horário e posicionamento do painel 
+                influenciam a quantidade de energia produzida.
+            </p>
+
+            <p>
+                Facilitar o acesso à energia quando não há uma tomada disponível,
+                por exemplo, quando o power bank descarrega fora de casa.
+            </p>
+
+            <p>
+                Aproveitar essas fontes pode reduzir os impactos da poluição no planeta.
+            </p>
+
+            <div class="signature">
+                EcoCharge
+            </div>
+
+        </section>
+
+
+        <!-- INTERESSES -->
+
+        <section class="interests">
+
+            <div class="section-title">
+                <p>
+                    Justificativa: por que este projeto seria útil?
+                </p>
+            </div>
+            
+            <div class="section-title">
+                <p>
+                    A dependência de fontes tradicionais de energia e o aumento do consumo 
+                    de eletricidade são problemas importantes da sociedade atual. 
+                    Por isso, encontrar maneiras de produzir energia de forma renovável, econômica e 
+                    menos prejudicial ao meio ambiente é uma necessidade.
+                </p>
+            </div>
+
+            <div class="section-title">
+                <p>
+                    O EcoCharge seria útil porque demonstra, de maneira prática e acessível, 
+                    como a energia do Sol pode ser aproveitada para atender pequenas necessidades 
+                    elétricas. Além disso, o projeto não fica apenas na teoria: ele propõe uma 
+                    solução concreta para um problema real.
+                </p>
+            </div>
+
+            <div class="section-title">
+                <p>
+                    Outro ponto forte é que o protótipo pode ser construído e 
+                    testado pelos próprios alunos, permitindo coletar dados, fazer 
+                    comparações e descobrir quais condições produzem melhores resultados. 
+                    Assim, a feira apresenta não apenas um experimento, mas um processo
+                    científico que envolve a identificação de um problema, a criação de
+                    uma solução, a realização de testes, a análise dos resultados e o
+                    aperfeiçoamento do protótipo.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- SONHOS -->
+
+        <section class="dreams">
+
+            <h2>
+                Características
+            </h2>
+
+
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                    Utiliza energia solar como fonte renovável.
+                </span>
+            </div>
+
+
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                    Possui um pequeno painel solar para gerar eletricidade.
+                </span>
+            </div>
+
+
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                   Armazena a energia produzida na bateria.
+                </span>
+            </div>
+
+
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                    Pode alimentar LEDs ou pequenos dispositivos de baixa potência.
+                </span>
+            </div>
+
+
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                   Permite comparar a quantidade de energia produzida 
+                   em diferentes condições de iluminação.
+                </span>
+            </div>
+            
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                    Envolve conceitos de física, matemática, tecnologia e sustentabilidade.
+                </span>
+            </div>
+
+            <div class="dream">
+                <span class="check">✓</span>
+                <span>
+                    Tem como foco principal a resolução de um problema real:
+                    o desperdício e a dificuldade de acesso à energia elétrica em
+                    determinados locais.
+                </span>
+            </div>
+
+
+
+
+            <div class="quote">
+
+                <p>
+                    “Grandes sonhos exigem
+                    grandes passos.”
+                </p>
+
+                <div class="quote-line"></div>
+
+                <span>
+                    Para um mundo melhor
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contato">
+
+        <div>
+            © 2026 EcoCharge
+            Todos os direitos reservados.
+        </div>
+
+        <div>
+            Energia
+            <span class="footer-highlight">•</span>
+            renovável
+            <span class="footer-highlight">•</span>
+            sustentável
+        </div>
+
+    </footer>
+
+</body>
+</html>
